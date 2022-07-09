@@ -33,7 +33,7 @@ export const RepoCard = styled.div`
         text-decoration: none;
     }
     @media (max-width: 800px) {
-        height: 100%;
+        height: auto;
         flex-direction: column;
     }
 `;
@@ -59,6 +59,7 @@ export const CardContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 15px;
     h5 {
         margin-top: 0px;
         font-size: 20px;

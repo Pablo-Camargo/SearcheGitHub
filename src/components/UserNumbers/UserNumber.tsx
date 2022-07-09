@@ -1,5 +1,6 @@
 import React from "react";
 import { NumberContainer, InnerNumberContainer, Margin, Span } from "./styled";
+import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
 
@@ -15,20 +16,24 @@ const UserNumber: React.FC<UserNumberProps> = (props: UserNumberProps) => {
 
     function hendleClick(name: string) {
         history(`/${name}/repos`);
+        toast.dark("Repositórios! 📕");
+    }
+    function followersClick() {
+        toast.dark("já estamos trabalhando nisto! 👨‍💻");
     }
     return (
         <NumberContainer>
-            <InnerNumberContainer>
+            <InnerNumberContainer onClick={() => followersClick()}>
                 <Margin>{props.followers}</Margin>
                 <Span>Seguidores</Span>
             </InnerNumberContainer>
 
             <InnerNumberContainer onClick={() => hendleClick(`${props.name}`)}>
                 <Margin>{props.public_repos}</Margin>
-                <Span>Repositorios</Span>
+                <Span>Repositórios</Span>
             </InnerNumberContainer>
 
-            <InnerNumberContainer>
+            <InnerNumberContainer onClick={() => followersClick()}>
                 <Margin>{props.following}</Margin>
                 <Span>Seguindo</Span>
             </InnerNumberContainer>

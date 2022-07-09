@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useState } from "react";
+
 import axios from "axios";
 
 interface UserDetailsRepos {
@@ -54,6 +55,7 @@ export function SearchProvider({ children }: SearchProvaiderProps) {
         const endPoint = `https://api.github.com/users/${name}`;
         const response = await axios.get<UserDetailsRepos>(endPoint);
         setData(response.data);
+
         return response.data;
     }
 

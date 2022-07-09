@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Container, InnerCard, BotCard, TopoCard, MidCard } from "./styled";
 import UserNumber from "../UserNumbers/UserNumber";
@@ -66,7 +66,43 @@ const Card: React.FC<CardProps> = () => {
             </Box>
         </Container>
     ) : (
-        <h2>Não ouve retorno</h2>
+        <Container>
+            {" "}
+            <Box
+                sx={{
+                    alignItems: "center",
+                    flexDirection: "column",
+                    justifyContent: "spaceAround",
+
+                    display: "flex",
+                    "& > :not(style)": {
+                        mt: 5,
+
+                        height: 500,
+                        display: "flex",
+                        justifyContent: "spaceAround !important",
+                        flexDirection: "column",
+                    },
+                }}
+            >
+                <Paper
+                    sx={{
+                        backgroundColor: "rgb(18,18,18)",
+                        boxShadow: "7px 4px 5px #0000004d",
+                        border: "1px solid #242121 !important",
+                        color: "#fff",
+                    }}
+                >
+                    <InnerCard>
+                        <TopoCard>
+                            <Typography variant="h5" component="span">
+                                Para usar basta pesquisar o nome que deseja
+                            </Typography>
+                        </TopoCard>
+                    </InnerCard>
+                </Paper>
+            </Box>
+        </Container>
     );
 };
 

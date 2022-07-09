@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { RepoCard, Container, TitleContent, CardContent } from "./styled";
-
-import { useParams, useNavigate } from "react-router-dom";
 import {
-    Grid,
-    Badge,
-    Button,
+    RepoCard,
+    Container,
+    TitleContent,
+    CardContent,
     CardActions,
-} from "@mui/material";
+    PillInner,
+} from "./styled";
+import { toast } from "react-toastify";
+import { useParams, useNavigate } from "react-router-dom";
+import { Grid, Badge, Button, Chip } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 
 import { listRepos } from "../../hooks/getUserRepo";
@@ -27,6 +29,7 @@ const Repos: React.FC<ReposProps> = () => {
 
     function hendleClick(repoName: string, loginName: string) {
         history(`/${loginName}/commits/repo/${repoName}`);
+        toast.dark("Commits! 📖");
     }
 
     return (
@@ -49,10 +52,18 @@ const Repos: React.FC<ReposProps> = () => {
                                 }
                             >
                                 <CardContent>
-                                    <div>
-                                        <h5>{a.name}</h5>
+                                    <h5>{a.name}</h5>
 
-                                        <span>{a.description}</span>
+                                    <span>{a.description}</span>
+                                    <PillInner>
+                                        <Chip label={a.visibility} />
+                                    </PillInner>
+                                </CardContent>
+                                <CardActions>
+                                    <div>
+                                        <a rel="stylesheet" href={a.clone_url}>
+                                            <Button size="small">Clone</Button>
+                                        </a>
                                     </div>
                                     <div>
                                         <Badge
@@ -66,11 +77,6 @@ const Repos: React.FC<ReposProps> = () => {
                                             <StarIcon />
                                         </Badge>
                                     </div>
-                                </CardContent>
-                                <CardActions>
-                                    <a rel="stylesheet" href={a.clone_url}>
-                                        <Button size="small">Clone</Button>
-                                    </a>
                                 </CardActions>
                             </RepoCard>
                         </Grid>

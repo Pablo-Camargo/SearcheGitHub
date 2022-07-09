@@ -33,7 +33,8 @@ export const RepoCard = styled.div`
         text-decoration: none;
     }
     @media (max-width: 800px) {
-        height: 100%;
+        height: auto;
+        align-items: center;
         flex-direction: column;
     }
 `;
@@ -58,6 +59,7 @@ export const TitleContent = styled.div`
 export const CardContent = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 15px;
     justify-content: space-between;
     h5 {
         margin-top: 0px;
@@ -72,5 +74,29 @@ export const CardContent = styled.div`
         span {
             font-size: 12px;
         }
+    }
+`;
+export const CardActions = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+`;
+
+export const PillInner = styled.div`
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    div {
+        background-color: #242121 !important;
+    }
+    span {
+        color: #c9d1d9 !important;
+    }
+    @media (max-width: 800px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `;

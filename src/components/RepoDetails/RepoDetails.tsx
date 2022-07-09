@@ -9,7 +9,7 @@ interface RepoDetailsProps {}
 
 const RepoDetails: React.FC<RepoDetailsProps> = () => {
     const { repoName, loginName } = useParams();
-    console.log(repoName, loginName);
+
     const [comit, setRepositories] = useState<CommitsInner[]>([]);
 
     const full_name = `${loginName}/${repoName}`;
@@ -19,12 +19,6 @@ const RepoDetails: React.FC<RepoDetailsProps> = () => {
         getAllCommits(full_name).then((resp) => setRepositories(resp));
     }, [full_name]);
 
-    console.log(
-        comit.map((a) => {
-            return a.commit.message;
-        })
-    );
-
     return (
         <Container>
             <TitleContent>
@@ -32,8 +26,9 @@ const RepoDetails: React.FC<RepoDetailsProps> = () => {
             </TitleContent>
 
             {comit.map((a) => {
+                console.log(a);
                 return (
-                    <RepoCard key={a.commit.author.name}>
+                    <RepoCard key={a.committer.id}>
                         <CardContent>
                             <h5>autor</h5>
                             <span>{a.commit.author.name}</span>
