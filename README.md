@@ -14,6 +14,10 @@ Abra [http://localhost:3000](http://localhost:3000) para visualizá-lo no navega
 A página será recarregada se você fizer edições.\
 Você também verá erros de lint no console.
 
+O aplicativo funciona basicamente buscando um usuário no github pela barra de busca
+depois os seguidores rop e seguindo onde podemos clicar em um deles para ver mais
+
+uma aplicação prévia de um desenvolvedor júnior
 ### `teste npm`
 
 Inicia o executor de teste no modo de exibição interativa.\
